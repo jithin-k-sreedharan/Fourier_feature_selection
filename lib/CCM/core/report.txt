@@ -1,0 +1,27 @@
+TensorFlow 2.0 Upgrade Script
+-----------------------------
+Converted 1 files
+Detected 0 issues that require attention
+--------------------------------------------------------------------------------
+================================================================================
+Detailed log follows:
+
+================================================================================
+--------------------------------------------------------------------------------
+Processing file 'ccm_v1.py'
+ outputting to 'ccm.py'
+--------------------------------------------------------------------------------
+
+24:15: INFO: Added keywords to args of function 'tf.reduce_mean'
+24:15: INFO: Renamed keyword argument for tf.reduce_mean from keep_dims to keepdims
+25:15: INFO: Added keywords to args of function 'tf.reduce_mean'
+25:15: INFO: Renamed keyword argument for tf.reduce_mean from keep_dims to keepdims
+26:15: INFO: Added keywords to args of function 'tf.reduce_mean'
+135:21: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+144:28: INFO: Renamed 'tf.matrix_inverse' to 'tf.linalg.inv'
+165:36: INFO: Renamed 'tf.matrix_inverse' to 'tf.linalg.inv'
+177:24: INFO: Renamed 'tf.trace' to 'tf.linalg.trace'
+180:29: INFO: Added keywords to args of function 'tf.gradients'
+182:24: INFO: Renamed 'tf.Session' to 'tf.compat.v1.Session'
+--------------------------------------------------------------------------------
+

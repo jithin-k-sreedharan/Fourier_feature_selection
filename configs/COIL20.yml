@@ -1,0 +1,12 @@
+data_name: "COIL20"
+fourier_orth_settings:
+    max_depth: 3
+    cluster_sizes: [-1, 50, 31]
+    selection_thresholds: [0.95, 0.995, 0.9999]
+    norm_epsilon: [0.001, 0.001, 0.001]
+    shuffle: False
+    preranking: "non"
+random_states: [42, 100, 0, 25, 80]
+algorithms: [
+  "UFFS + SFFS (t=3)", "UFFS + SFFS (t=2)", "UFFS + SFFS (t=1)", "CCM", "ReliefF", "mRMR", "MI", "RFS"]
+
