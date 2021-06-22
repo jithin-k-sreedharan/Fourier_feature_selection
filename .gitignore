@@ -1,9 +1,15 @@
 
-/data/*
-!/data/icml_paper/
-/results/data_Mohsen/*
+/archive
+/configs
+/data
+/results
 /lib/scikit-feature
-# Notebooks for this branch
+
+/src/*
+!/src/compute_fourier_coeff_supervised.pyx
+!/src/compute_norms_features_unsupervised.pyx
+!/src/fourier_learning.py
+!/src/setup.py
 
 # source: https://stackoverflow.com/questions/35278885/gitignore-exclusion-is-not-working-for-a-single-file
 
