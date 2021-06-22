@@ -1,11 +1,6 @@
 from itertools import chain, combinations
 cimport cython
 
-# To check:
-# 1. np.prod
-# 2. Check parallel implementation
-# ----------
-
 def powerset(iterable, k):
     "powerset([1,2,3]) --> () (1,) (2,) (3,) (1,2) (1,3) (2,3) (1,2,3)"
     return chain.from_iterable(combinations(iterable, r) for r in range(1, k + 1))

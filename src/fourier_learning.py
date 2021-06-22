@@ -1,12 +1,4 @@
-"""
-This is the NEWER version, that's in use from NeurIPS rebuttal period. The unusupervised algorithm
-is changed in the this version to accommodate Mohsen's additions.
-
-To Do: In the unsupervised algorithm, I still need to add the pre-processing (preranking and shuffle)
-Mohsen used in his code.
-
-Implementation of unuspervised and supervised Fourier feature selection algorithms
-Algorithm 1 and Algorithm 2 in the paper
+"""Implementation of unuspervised and supervised Fourier feature selection algorithms
 """
 
 from sklearn.base import BaseEstimator, ClassifierMixin
@@ -98,9 +90,8 @@ def UnsupervisedFourierFS(X, options):
     return nonredundant_features
 
 
-'''
-The main class for supervised Fourier feature selection algorithm (SFFS)
-'''
+
+#The main class for supervised Fourier feature selection algorithm (SFFS)
 class SupervisedFourierFS(BaseEstimator, ClassifierMixin):
     '''
     Arguments:
@@ -109,7 +100,7 @@ class SupervisedFourierFS(BaseEstimator, ClassifierMixin):
         std_emp: vector of empirical standard deviation of each features
         approx: approximation technique in the implementation.
                 It can be "none", depth-based or greedy-based.
-        depth: t in Algorithm 2
+        depth: t in Algorithm 1
     '''
     def __init__(self, k, mean_emp, std_emp, approx=None, depth= None):
         self.k = k
@@ -119,12 +110,12 @@ class SupervisedFourierFS(BaseEstimator, ClassifierMixin):
         self.depth = depth
         self.f_bar_S_dict = {}
 
-    '''
-    Arguments:
-        X_train: input data
-        y_train: output data
-    '''
     def fit(self, X_train, y_train):
+        '''
+        Arguments:
+            X_train: input data
+            y_train: output data
+        '''
         _, d = X_train.shape
 
         X_1 = (X_train - self.mean_emp) / self.std_emp

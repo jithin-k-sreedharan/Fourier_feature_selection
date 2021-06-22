@@ -1,7 +1,16 @@
 # Feature Selection via a Fourier Framework
 
-Computation complexity: The complexity of our Fourer-based feature selection algorithms is $O(d^t n),$ where $t$ is the depth of the algorithm (usually $t$ is 1 or 2). This complexity is independent of $k$.
+This repository provides implementation of the feature selection algorithms (Fourier-Orth (UFFS) and SFFS) proposed in the following papers:
+* [Finding Relevant Information via a Discrete Fourier Expansion](https://jithin-k-sreedharan.github.io/files/publications/mohsen-jithin_icml2021.pdf)\
+Mohsen Heidari, Jithin K. Sreedharan, Gil Shamir, and Wojciech Szpankowski\
+_International Conference on Machine Learning (ICML), 2021_
 
+* [Information Sufficiency via Fourier Expansion](https://jithin-k-sreedharan.github.io/files/publications/Jithin_ISIT2021.pdf)\
+Mohsen Heidari, Jithin K. Sreedharan, Gil Shamir, and Wojciech Szpankowski\
+_IEEE International Symposium on Information Theory (ISIT), 2021_
+
+
+<!-- Computation complexity: The complexity of our Fourer-based feature selection algorithms is $O(d^t n),$ where $t$ is the depth of the algorithm (usually $t$ is 1 or 2). This complexity is independent of $k$. -->
 ## Prerequisites
 
 * Python 3.5+ with Anaconda Distribution (Numpy, Scipy, scikit-learn, Cython support)
@@ -21,7 +30,7 @@ Computation complexity: The complexity of our Fourer-based feature selection alg
     python setup.py install
     ```
 
-## Using the feature selection algorith
+## Using the feature selection algorithm
 
 The following function shows how to use the SFFS algroithm.
 
@@ -43,8 +52,9 @@ def SFFS(X, y, t, k, fourier_orth_params):
         features_selected: Selected feature indices; list of integers.
     """
     # Perform Fourier-Orth orthogonalization
-    # This step is not necessary and can be avoided. We can run SFFS directly without Fourier-Orth step
-    fourier_orth_options = fourier_learning.OptionsUnsupervisedFourierFS(**FOURIER_ORTH_PARAMS)
+    # This step is not necessary and can be avoided. 
+    # We can run SFFS directly without Fourier-Orth step
+    fourier_orth_options = fourier_learning.OptionsUnsupervisedFourierFS(**fourier_orth_params)
     sel_features_fourier_orth = fourier_learning.UnsupervisedFourierFS(X, fourier_orth_options)
 
     # Fourier-Orth can be considered as an unsupervised feature selection algorithm
