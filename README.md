@@ -1,6 +1,6 @@
-# Feature Selection via a Fourier Framework
+# Unsupervised and Supervised Fourier Feature Selection (UFFS and SFFS)
 
-This repository provides implementation of the feature selection algorithms (Fourier-Orth (UFFS) and SFFS) proposed in the following papers:
+This repository provides implementation of the Fourier-based feature selection algorithms — Fourier-Orth or UFFS and SFFS proposed in the following papers:
 * [Finding Relevant Information via a Discrete Fourier Expansion](https://jithin-k-sreedharan.github.io/files/publications/mohsen-jithin_icml2021.pdf)\
 Mohsen Heidari, Jithin K. Sreedharan, Gil Shamir, and Wojciech Szpankowski\
 _International Conference on Machine Learning (ICML), 2021_
@@ -13,26 +13,26 @@ _IEEE International Symposium on Information Theory (ISIT), 2021_
 <!-- Computation complexity: The complexity of our Fourer-based feature selection algorithms is $O(d^t n),$ where $t$ is the depth of the algorithm (usually $t$ is 1 or 2). This complexity is independent of $k$. -->
 ## Prerequisites
 
-* Python 3.5+ with Anaconda Distribution (Numpy, Scipy, scikit-learn, Cython support)
-* gcc/clang with OpenMP support
+* Python 3.5+ with NumPy, SciPy, scikit-learn, Cython support.
+* GCC/Clang
 
 ## Installation
 
-* Compile the Cython files associated to Fourier-Orth and SFFS algorithms from the `src` folder
+Compile the Cython files associated to Fourier-Orth and SFFS algorithms from the `src` folder
 
-    ```bash
-    python setup.py build_ext --inplace
-    ```
-* Compile C++ implementation of `mRMR` from `lib\mrmr_c_Peng` folder with `bash compile.sh`
+```bash
+python setup.py build_ext --inplace
+```
+<!-- * Compile C++ implementation of `mRMR` from `lib\mrmr_c_Peng` folder with `bash compile.sh`
 * Compile other feature selection implementations using `skfeature` library from `lib\scikit-feature`:
 
     ```bash
     python setup.py install
-    ```
+    ``` -->
 
-## Using the feature selection algorithm
+## Using the Fourier-based feature selection algorithms
 
-The following function shows how to use the SFFS algroithm.
+The following function shows how to use the UFFS (Fourier-Orth) and SFFS in a sequence.
 
 ```python
 import fourier_learning
@@ -73,7 +73,7 @@ def SFFS(X, y, t, k, fourier_orth_params):
 
 Parameters of the Fourier-Orth procedure are:
 * `max_depth` (int): Depth parameter of Fourier-Orth procedure. We perform Fourier-Orth in a sequential way —- the procedure is first run with depth 1, then the training set is filtered with the selected features from depth 1 and is passed to depth 2 of the procedure. This process is repeated until the `max_depth` is reached.
-* `cluster_sizes` (list of ints): At each depth, to reduce the demand for high computational resorces, we partition the features into batches, run Fouier-Orth on each batch and finally combine the results. This parameter specifies the sizes of clusters at each depth
+* `cluster_sizes` (list of ints): At each depth, to reduce the demand for high computational resources, we partition the features into batches, run Fouier-Orth on each batch and finally combine the results. This parameter specifies the sizes of clusters at each depth
 * `norm_epsilon` (list of floats): Threshold `epsilon` at step 9 in the procedure. The parameter lists `epsilon` at different depths.
 * `selection_thresholds` (list of floats): Equivalent to threshold `epsilon` at step 15, for each depth. We either use `selection_thresholds` as it is when employing a technique fof explained variance or  1-`selection_thresholds` if we use exact step 15.
 

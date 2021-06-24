@@ -3,7 +3,7 @@
 /configs
 /data
 /results
-/lib/scikit-feature
+/lib
 
 /src/*
 !/src/compute_fourier_coeff_supervised.pyx
