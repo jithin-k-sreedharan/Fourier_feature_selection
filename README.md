@@ -86,6 +86,28 @@ fourier_orth_params = {
     "norm_epsilon": [0.001, 0.001, 0.0001]
 }
 ```
+
+## Citing the work
+If you find our algorithms useful, please cite the following the papers:
+```
+@InProceedings{sfs_icml21,
+  title     = {Finding Relevant Information via a Discrete Fourier Expansion},
+  author    =  {Mohsen Heidari and Jithin K. Sreedharan and Gil Shamir and Wojciech Szpankowski},
+  booktitle = {Proceedings of the 38th International Conference on Machine Learning},
+  year      = {2021},
+  series    = {Proceedings of Machine Learning Research},
+  publisher = {PMLR},
+}
+```
+```
+@InProceedings{uffs_isit21,
+  title     = {Information Sufficiency via Fourier Expansion},
+  author    = {Mohsen Heidari and Jithin K. Sreedharan and Gil Shamir and Wojciech Szpankowski},
+  booktitle = {Proc. IEEE Int. Symp. Information Theory (ISIT)},
+  year      = {2021},
+}
+```
+
 <!-- ## Notes
 
 * The main function that implements UFFS and SFFS are available in the helper program `fourier_learning.py`.
