@@ -5,6 +5,8 @@
 /results
 /lib
 
+/environment.yml
+
 /src/*
 !/src/compute_fourier_coeff_supervised.pyx
 !/src/compute_norms_features_unsupervised.pyx
